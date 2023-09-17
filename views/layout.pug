@@ -10,7 +10,25 @@ html(lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml")
     meta(http-equiv="Content-Language" content="en")
     block scripts
   body
+    if menu !== false
+      div.menu
+        ul.links
+          li
+            a(href='/') home
+
+          if user === undefined
+            li
+              a(href='/auth/login/beta') login (beta)
+          else
+            li
+              a(href='/auth/logout') logout
+          block menu
     div.main
       block content
     div.footer
       block footer
+        h1.github Github
+        p.
+          Source code is <a href="https://github.com/myndzi/streamer-wands-backend/">available on Github</a>. In particular, the
+          contents of the mod bundle are in the <a href="https://github.com/myndzi/streamer-wands-backend/tree/master/mod/">mod folder</a>.
+

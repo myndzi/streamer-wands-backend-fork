@@ -1,22 +1,18 @@
 extends layout.pug 
 
+block menu
+  if user !== undefined
+    li
+      a(href=`/streamer/${user.displayName}`) stream link
+
 block content
   if user === undefined
-    ul.links
-      li
-        a(href='/auth/login/beta') login (beta)
-
     div.prose
       h1.instructions Instructions
       p.
         Log in via Twitch to get your customized mod zip file. Your Twitch credentials are not stored, and are
         only used to identify which streamer's wands page to update as you play the game.
   else
-    ul.links
-      li
-        a(href=`/streamer/${user.displayName}`) stream link
-      li 
-        a(href='/auth/logout') logout
 
     div.prose
       h1.instructions Instructions

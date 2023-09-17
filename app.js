@@ -39,6 +39,11 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.locals = {
+    domain: process.env.DOMAIN,
+    title: 'Streamer Wands',
+}
+
 // Main Routes
 app.use('/streamer', streamerRoutes)
 app.use('/auth', authRoutes)

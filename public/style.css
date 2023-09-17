@@ -436,9 +436,13 @@ p {
 div.prose {
     max-width: 65ch;
 }
-.main, .footer {
-    padding: 1rem;
+
+.main {
     background-color: black;
+}
+
+.menu, .main, .footer {
+    padding: 1rem;
     color: rgba(255, 255, 255, 0.8);
 }
 ul.links {
@@ -458,6 +462,9 @@ a {
 }
 a:visited {
     color: rgb(170, 132, 125);
+}
+p {
+    margin: 0.75rem 0;
 }
 
 .inventory-wrapper {

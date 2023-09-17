@@ -7,7 +7,8 @@
         ".env": true
     },
     "files.exclude": {
-        ".env": true
+        ".env": true,
+        "**/node_modules": true,
     },
     "[js]": {
         "editor.defaultFoldingRangeProvider": "esbenp.prettier-vscode"
@@ -20,6 +21,9 @@
         "editor.detectIndentation": false,
         "editor.insertSpaces": false,
         "editor.defaultFormatter": "redhat.vscode-xml"
+    },
+    "[jade]": {
+        "editor.defaultFormatter": "ducfilan.pug-formatter"
     },
     "xml.format.maxLineWidth": 140,
     "xml.format.closingBracketNewLine": true,

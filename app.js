@@ -6,16 +6,17 @@ const MongoStore = require('connect-mongo')
 const passport = require('passport')
 const streamerRoutes = require('./routes/streamer')
 const authRoutes = require('./routes/auth')
+const indexRoutes = require('./routes/index')
 const errorHandlers = require('./handlers/errorHandlers')
 require('./handlers/passportHandler')
 const app = express()
 
-app.use((req, res, next) => {
-    console.log(
-        `${req.headers['x-real-ip'] ?? req.ip} ${req.method} ${req.path}`
-    )
-    next()
-})
+// app.use((req, res, next) => {
+//     console.log(
+//         `${req.headers['x-real-ip'] ?? req.ip} ${req.method} ${req.path}`,
+//     )
+//     next()
+// })
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
@@ -32,7 +33,7 @@ app.use(
         }),
         httpOnly: true,
         secure: true,
-    })
+    }),
 )
 
 app.use(passport.initialize())
@@ -41,14 +42,15 @@ app.use(passport.session())
 // Main Routes
 app.use('/streamer', streamerRoutes)
 app.use('/auth', authRoutes)
+app.use('/', indexRoutes)
 
-// Error Handling
-app.use('/', errorHandlers.notFound) // 404
-
-if (process.env.NODE_ENV === 'development') {
-    app.use('/', errorHandlers.devError) // Stack trace
+if (true || process.env.NODE_ENV === 'development') {
+    app.use(errorHandlers.devError) // Stack trace
+} else {
+    app.use(errorHandlers.productionError) // Whoopsies something went wrong
 }
 
-app.use('/', errorHandlers.productionError) // Whoopsies something went wrong
+// Error Handling
+app.use(errorHandlers.notFound) // 404
 
 module.exports = app

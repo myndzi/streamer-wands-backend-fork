@@ -1,6 +1,15 @@
 {
-  "[.js]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFoldingRangeProvider": "esbenp.prettier-vscode"
-  }
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        ".env": true
+    },
+    "files.exclude": {
+        ".env": true
+    },
+    "[.js]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFoldingRangeProvider": "esbenp.prettier-vscode"
+    }
 }

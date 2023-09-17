@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+git archive -o mod.zip HEAD:mod

@@ -10,6 +10,13 @@ const errorHandlers = require('./handlers/errorHandlers')
 require('./handlers/passportHandler')
 const app = express()
 
+app.use((req, res, next) => {
+    console.log(
+        `${req.headers['x-real-ip'] ?? req.ip} ${req.method} ${req.path}`
+    )
+    next()
+})
+
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 // // uncomment this if not running behind a reverse proxy such as nginx

@@ -1,3 +1,3 @@
-local server = ModSettingGet("streamer_wands.server")
+--local server = ModSettingGet("streamer_wands.server")
 local token = dofile("mods/streamer_wands/token.lua")
-HOST_URL = "ws://" .. server .. "/" .. token
+HOST_URL = "wss://onlywands.com/" .. token

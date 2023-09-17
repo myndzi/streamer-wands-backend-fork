@@ -2,4 +2,6 @@
 
 set -e
 
-git archive -o mod.zip HEAD:mod
+name="streamer_wands"
+
+git -c core.autocrlf=false archive --prefix="$name/" -o "$name".zip HEAD:mod

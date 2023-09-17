@@ -1,0 +1,3 @@
+mod/**/*.lua eol=crlf
+mod/**/*.xml eol=crlf
+mod/**/*.md eol=crlf

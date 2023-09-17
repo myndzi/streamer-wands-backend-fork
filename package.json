@@ -19,9 +19,11 @@
     "mongoose": "^7.2.1",
     "passport": "^0.6.0",
     "passport-twitch-strategy": "^2.2.0",
-    "prettier": "^2.8.8",
     "pug": "^3.0.0",
     "uuid": "^9.0.0",
     "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
   }
 }
